@@ -1,0 +1,12 @@
+{% load account %}
+{% autoescape off %}
+Hi {{ user.first_name }},
+
+Добро пожаловать на наш новостной сайт! Чтобы активировать свой аккаунт, пожалуйста, нажмите на ссылку ниже:
+
+{{ protocol }}://{{ domain }}{% url 'account_confirm_email' uidb64=uid token=token %}
+
+Спасибо, что подписались!
+
+The News Site Team
+{% endautoescape %}

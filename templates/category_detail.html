@@ -1,0 +1,15 @@
+<!--  наследуемся от шаблона default.html, который мы создавали для flatpages -->
+{% extends 'flatpages/default.html' %}
+
+{% block content %}
+    <h1>{{ object.name }}</h1>
+    <p>{{ object.description }}</p>
+    {% if subscribed %}
+        <p>Подпишись на категорию.</p>
+    {% else %}
+        <form method="post" action="{% url 'subscribe_category' pk=object.pk %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary">Подписаться</button>
+        </form>
+    {% endif %}
+{% endblock %}

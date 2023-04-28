@@ -1,0 +1,10 @@
+<!--  наследуемся от шаблона default.html, который мы создавали для flatpages -->
+{% extends 'flatpages/default.html' %}
+
+<!-- В контенте на странице мы выводим саму новость, идентификатор которого был передан в url -->
+{% block content %}
+{% csrf_token %}
+<hr>
+  <h1 class="text-center">{{ message }} {{ category }}</h1>
+<hr>
+{% endblock content %}
